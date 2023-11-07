@@ -1,0 +1,5 @@
+  File "/home/robu/work/robu_jamben19_ws/install/robu/lib/python3.10/site-packages/robu/ex10_wallfollower.py", line 76
+    "rd: %.2f m", % self.rear_dist,
+                  ^
+SyntaxError: invalid syntax
+
