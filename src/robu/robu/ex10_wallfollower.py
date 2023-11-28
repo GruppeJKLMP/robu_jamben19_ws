@@ -13,13 +13,19 @@ from enum import IntEnum
 
 
 ROBOT_DRIECTION_FRONT_INDEX = 0
-ROBOT_DIRECTION_RIGHT_FRONT_INDEX = 315
-ROBOT_DIRECTION_RIGHT_INDEX = 270
-ROBOT_DIRECTION_RIGHT_REAR_INDEX = 225
-ROBOT_DIRECTION_REAR_INDEX = 180
-ROBOT_DIRECTION_LEFT_REAR_INDEX = 135
+ROBOT_DIRECTION_LEFT_FRONT_INDEX = 60
 ROBOT_DIRECTION_LEFT_INDEX =90
-ROBOT_DIRECTION_LEFT_FRONT_INDEX = 45
+ROBOT_DIRECTION_LEFT_REAR_INDEX = 120
+ROBOT_DIRECTION_REAR_INDEX = 180
+ROBOT_DIRECTION_RIGHT_REAR_INDEX = 240
+ROBOT_DIRECTION_RIGHT_INDEX = 270
+ROBOT_DIRECTION_RIGHT_FRONT_INDEX = 300
+
+
+
+
+
+
 
 class WallfollowerStates(IntEnum):
     WF_STATE_INVALID = -1,
@@ -37,7 +43,7 @@ class WallFollower(Node):
                                                         qos_profile_sensor_data)
         self.cmd_vel_publisher = self.create_publisher(Twist, 
                                                        "/cmd_vel", 
-                                                       qos_profile_sensor_data)
+                                                       10)
 
         self.left_dist = 9999999.9 # initialisiere die Variable auf einen ungueltigen Wert
         self.leftfront_dist = 9999999.9
@@ -64,7 +70,7 @@ class WallFollower(Node):
         self.valid_lidar_data = False
         self.timer = self.create_timer(0.2, self.timer_callback)
 
-    def timer_callback(self, msg):
+    def timer_callback(self):
         if self.valid_lidar_data: #beim erstmaligen Aufruf ligen noch keine Daten vor
             self.follow_wall()
 
