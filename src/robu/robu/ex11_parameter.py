@@ -14,7 +14,7 @@ class MinimalParameter(Node):
                 ('turning_speed_wf_slow', 0.1),
                 ('dist_thresh_wf', 0.3),
                 ('dist_hysteresis_wf', 0.02),
-            ])
+            ])imer_callback
 
         self.timer = self.create_timer(1.0, self.timer_callback)
         #my_param = self.get_parameter('my_parameter')
