@@ -1,0 +1,5 @@
+  File "/home/robu/work/robu_jamben19_ws/install/robu/lib/python3.10/site-packages/robu/ex11_parameter.py", line 9
+    namespace=''
+              ^
+SyntaxError: invalid syntax. Perhaps you forgot a comma?
+
